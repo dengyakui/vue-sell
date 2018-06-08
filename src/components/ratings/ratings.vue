@@ -1,5 +1,5 @@
 <template>
-  <div>ratings</div>
+  <div>ratingssss</div>
 </template>
 
 <script>

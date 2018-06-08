@@ -11,7 +11,7 @@
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
         <div v-if="seller.supports" class="support">
-          <span class="icon" :class="classMap[parseInt(seller.supports[0].type)]"></span>
+          <span class="icon"></span>
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
@@ -30,11 +30,10 @@ export default {
   },
   data () {
     return {
-      classMap: []
+      
     }
   },
   created () {
-    this.classMap = ['decrease', 'discount', 'special','invoice', 'guarantee']
   }
 }
 </script>
@@ -87,8 +86,6 @@ export default {
               bg-img('discount_1')
             &.guarantee
               bg-img('guarantee_1')
-            &.invoice
-              bg-img('invoice_1')
             &.special
               bg-img('special_1')
 

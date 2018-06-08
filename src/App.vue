@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab">
       <div class="tab-item">
         <router-link :to="{ path: '/goods'}" >商品</router-link>
@@ -18,10 +18,26 @@
 </template>
 <script>
 import header from './components/header/header'
+// eslint-disable-next-line
+const ERR_Ok = 0
 export default {
   name: 'App',
   components: {
     'v-header': header
+  },
+  data () {
+    return {
+      seller: {}
+    }
+  },
+  created () {
+    this.$http.get('/api/seller').then(response => {
+      // eslint-disable-next-line
+      response = response.body
+      if(response.errno === ERR_Ok) {
+        this.seller = response.data
+      }
+    })
   }
 }
 </script>
