@@ -19,22 +19,24 @@
 <script>
 import header from './components/header/header'
 // eslint-disable-next-line
-const ERR_Ok = 0
+const ErrOk = 0
 export default {
   name: 'App',
   components: {
     'v-header': header
   },
-  data () {
+  data() {
     return {
-      seller: {}
+      seller:{
+
+      }
     }
   },
-  created () {
+  created(){
     this.$http.get('/api/seller').then(response => {
       // eslint-disable-next-line
       response = response.body
-      if(response.errno === ERR_Ok) {
+      if(response.errno === ErrOk){
         this.seller = response.data
       }
     })
